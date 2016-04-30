@@ -305,7 +305,7 @@ class umat(SageObject):
             print 'Calculating 2nd Piola Kirchoff Stress'
             sys.stdout.flush()
             
-        S_PK=jacobian(self.W, self.C.list())*2
+        S_PK=jacobian(self.W, self.C.list())+jacobian(self.W, self.C.T.list())
 
         # Substitute C=F^T*F
         self.CC=self.F.transpose()*self.F
